@@ -112,19 +112,19 @@ class SinglyLinkedList {
   }
 
   reverse() {
-    // swapping head & tail
-    let node = this.head; // current node
+    let current = this.head;
     this.head = this.tail;
-    this.tail = node;
+    this.tail = current;
 
     let next;
-    let prev = null;
+    let previous = null;
 
-    for (var i = 0; i < this.length; i++) {
-      next = node.next;
-      node.next = prev;
-      prev = node;
-      node = next;
+    for (let i = 0; i < this.length; i++) {
+      next = current.next;
+      current.next = previous;
+
+      previous = current;
+      current = next;
     }
     return this;
   }
@@ -137,4 +137,9 @@ list.push('c');
 list.push('d');
 list.push('e');
 
-console.log(list);
+list.reverse();
+console.log(list.get(0));
+console.log(list.get(1));
+console.log(list.get(2));
+console.log(list.get(3));
+console.log(list.get(4));
