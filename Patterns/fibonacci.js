@@ -1,12 +1,14 @@
 // Tabulation
 
 const fib = (num) => {
-  const result = [0, 1, 1];
+  if (num <= 2) return 1;
+
+  const fibNums = [0, 1, 1];
 
   for (let i = 3; i <= num; i++) {
-    result.push(result[i - 1] + result[i - 2]);
+    fibNums[i] = fibNums[i - 1] + fibNums[i - 2];
   }
-  return result[num];
+  return fibNums[num];
 };
 
 console.log(fib(6));
